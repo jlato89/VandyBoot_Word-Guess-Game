@@ -2,4 +2,5 @@
 
 ## Steps to create game:
 1- create HTML template
-2- 
+2- list global variables
+3- 
