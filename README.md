@@ -1,6 +1,5 @@
 # Word-Guess-Game
 
 ## Steps to create game:
-1- create HTML template
-2- list global variables
-3- 
+1- Computer generates word
+2- outputs dashes
