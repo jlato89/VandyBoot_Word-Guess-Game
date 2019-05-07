@@ -28,7 +28,7 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
     // ==========================================================================
 
 // Captures keyboard input.
-document.onkeyup = function onKeyEvent (event) {
+document.onkeyup = function (event) {
 
 var userKey = event.key.toLowerCase();
 
