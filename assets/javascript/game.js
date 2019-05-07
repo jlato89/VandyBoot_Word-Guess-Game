@@ -7,14 +7,14 @@ var currentWord = words[number];
 
 // Arrays
 var currentWordArray = currentWord.split("");
-var currentDashArray = [];
+var currentDashArray = Array(currentWord.length).fill("-");
 
 var guessesRemaining = 15;
 var lettersGuessed = "NOT SET YET";
 
 
 
-document.getElementById("current-word").innerHTML = "- ".repeat(currentWord.length);
+document.getElementById("current-word").innerHTML = currentDashArray.join('');
 document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
@@ -28,23 +28,25 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
     // ==========================================================================
 
 // Captures keyboard input.
-document.onkeyup = function (event) {
+document.onkeyup = function game (event) {
 
     var userKey = event.key.toLowerCase();
 
     for (i = 0; i < currentWord.length; i++) {
 
         if (currentWordArray[i] === userKey) {
-            // alert("You Matched!");
-            console.log("userKey " + userKey + " Matched " + "current word index of " + currentWordArray[i])
-            // currentDashArray[i] = userKey;
+
+            currentDashArray[i] = userKey;
+
+        // Displays Console Logs
+            console.log(userKey + " key Matched " + "current word index of " + i);
+            console.log(currentDashArray);
         };
 
-
+        
 // for statement console logs    
     // console.log(userKey);
     // console.log(currentWordArray[i]);
-
     }
 };
 
@@ -61,4 +63,4 @@ document.onkeyup = function (event) {
 console.log(currentWord);
 console.log(currentWordArray);
 // console.log(currentWordLength);
-// console.log(currentDashesSplit);
+console.log(currentDashArray);
