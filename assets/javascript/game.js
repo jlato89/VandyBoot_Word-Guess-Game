@@ -21,14 +21,14 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
     // FUNCTIONS
     // ==========================================================================
-
+// onKeyEvent();
 
 
     // MAIN PROCESS
     // ==========================================================================
 
 // Captures keyboard input.
-document.onkeyup = function game (event) {
+document.onkeyup = function onKeyEvent (event) {
 
     var userKey = event.key.toLowerCase();
 
@@ -38,17 +38,24 @@ document.onkeyup = function game (event) {
 
             currentDashArray[i] = userKey;
 
+            document.getElementById("current-word").innerHTML = currentDashArray.join('');
+
         // Displays Console Logs
             console.log(userKey + " key Matched " + "current word index of " + i);
             console.log(currentDashArray);
-        };
+        } else {
+            guessesRemaining-- // causes more than one to be removed due to loop
+
+            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+
+        }
 
         
 // for statement console logs    
     // console.log(userKey);
     // console.log(currentWordArray[i]);
     }
-};
+}
 
 
 
