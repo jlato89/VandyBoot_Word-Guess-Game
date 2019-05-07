@@ -30,31 +30,27 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 // Captures keyboard input.
 document.onkeyup = function onKeyEvent (event) {
 
-    var userKey = event.key.toLowerCase();
+var userKey = event.key.toLowerCase();
 
-    for (i = 0; i < currentWord.length; i++) {
+    if (currentWord.includes(userKey)) {
+        for (i = 0; i < currentWord.length; i++) {
+            if (currentWordArray[i] === userKey) {
 
-        if (currentWordArray[i] === userKey) {
+                currentDashArray[i] = userKey;
 
-            currentDashArray[i] = userKey;
+                document.getElementById("current-word").innerHTML = currentDashArray.join('');
 
-            document.getElementById("current-word").innerHTML = currentDashArray.join('');
-
-        // Displays Console Logs
-            console.log(userKey + " key Matched " + "current word index of " + i);
-            console.log(currentDashArray);
-        } else {
+            // Displays Console Logs
+                console.log(userKey + " key Matched " + "current word index of " + i);
+                console.log(currentDashArray);
+            }
+        }
+    } else {
             guessesRemaining-- // causes more than one to be removed due to loop
 
             document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 
         }
-
-        
-// for statement console logs    
-    // console.log(userKey);
-    // console.log(currentWordArray[i]);
-    }
 }
 
 
