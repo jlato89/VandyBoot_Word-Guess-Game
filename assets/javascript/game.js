@@ -10,13 +10,13 @@ var currentWordArray = currentWord.split("");
 var currentDashArray = Array(currentWord.length).fill("-");
 
 var guessesRemaining = 15;
-var lettersGuessed = "NOT SET YET";
+var lettersGuessed = "";
 
 
 
 document.getElementById("current-word").innerHTML = currentDashArray.join('');
 document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+// document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
 
     // FUNCTIONS
@@ -55,8 +55,10 @@ var userKey = event.key.toLowerCase();
         
     } else {
             guessesRemaining-- // causes more than one to be removed due to loop
+            lettersGuessed += userKey;
 
             document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+            document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
         }
 }
