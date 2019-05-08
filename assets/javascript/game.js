@@ -53,7 +53,13 @@ var userKey = event.key.toLowerCase();
 
         return;
         
-    } else {
+    } if (lettersGuessed.includes(userKey)) {
+
+        console.log("letter already guessed");
+        return;
+
+    } 
+    else {
             guessesRemaining-- // causes more than one to be removed due to loop
             lettersGuessed += userKey;
 
