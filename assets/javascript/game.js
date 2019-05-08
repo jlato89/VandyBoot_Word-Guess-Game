@@ -43,8 +43,16 @@ var userKey = event.key.toLowerCase();
             // Displays Console Logs
                 console.log(userKey + " key Matched " + "current word index of " + i);
                 console.log(currentDashArray);
+
+                return;
             }
         }
+    } if (!/^[a-z]$/.test(userKey)) {
+
+        alert(userKey + " is not a valid guess!");
+
+        return;
+        
     } else {
             guessesRemaining-- // causes more than one to be removed due to loop
 
