@@ -21,8 +21,9 @@ document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 
     // FUNCTIONS
     // ==========================================================================
-// onKeyEvent();
 
+    // if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
+    // else if (guessesRemaining === 0) { alert("GAME OVER! You Lost!") }
 
     // MAIN PROCESS
     // ==========================================================================
@@ -47,20 +48,17 @@ var userKey = event.key.toLowerCase();
             }
         }
         return;
-    } if (!/^[a-z]$/.test(userKey)) {
+    } else if (!/^[a-z]$/.test(userKey)) {
 
         alert(userKey + " is not a valid guess!");
 
-        return;
-        
-    } if (lettersGuessed.includes(userKey)) {
+    }else if (lettersGuessed.includes(userKey)) {
 
         console.log("letter already guessed");
-        return;
 
     } 
     else {
-            guessesRemaining-- // causes more than one to be removed due to loop
+            guessesRemaining--
             lettersGuessed += userKey;
 
             document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
@@ -69,7 +67,10 @@ var userKey = event.key.toLowerCase();
         }
 }
 
-
+// Checks for game completion
+    // if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
+    // else if (guessesRemaining === 0) { alert("GAME OVER! You Lost!") }
+    // else {}
 
 
     // CONSOLE LOG
@@ -80,6 +81,6 @@ var userKey = event.key.toLowerCase();
 // console.log(words);
 // console.log(number);
 console.log(currentWord);
-console.log(currentWordArray);
+// console.log(currentWordArray);
 // console.log(currentWordLength);
 console.log(currentDashArray);
