@@ -9,21 +9,23 @@ var currentWord = words[number];
 var currentWordArray = currentWord.split("");
 var currentDashArray = Array(currentWord.length).fill("-");
 
-var guessesRemaining = 15;
+var guessesRemaining = 10;
 var lettersGuessed = "";
-
+var wins = 0;
+var losses = 0;
 
 
 document.getElementById("current-word").innerHTML = currentDashArray.join('');
 document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-// document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+document.getElementById("wins").innerHTML = wins;
+document.getElementById("losses").innerHTML = losses;
 
 
     // FUNCTIONS
     // ==========================================================================
 
-    // if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
-    // else if (guessesRemaining === 0) { alert("GAME OVER! You Lost!") }
+
 
     // MAIN PROCESS
     // ==========================================================================
@@ -33,8 +35,7 @@ document.onkeyup = function (event) {
 
 var userKey = event.key.toLowerCase();
 
-    
-
+    // check if user key matches word, if so do loop check of characters
     if (currentWord.includes(userKey)) {
         for (i = 0; i < currentWord.length; i++) {
             if (currentWordArray[i] === userKey) {
@@ -47,29 +48,53 @@ var userKey = event.key.toLowerCase();
                 console.log(userKey + " key Matched " + "current word index of " + i);
                 console.log(currentDashArray);
 
-                if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
+                // if word is completed then end game and reset word
+                if (!currentDashArray.includes("-")) {
+                    alert("GAME OVER! You Win!") 
+                    wins++
 
+                    lettersGuessed = "";
+                    guessesRemaining = 10;
+
+                    document.getElementById("wins").innerHTML = wins;
+                    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+                    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+                    
+                } 
             }
-        }
-        return;
+        } return;
+
+    // check is userKey is valid character
     } else if (!/^[a-z]$/.test(userKey)) {
 
         alert(userKey + " is not a valid guess!");
 
+    // check if userKey has already been guessed
     }else if (lettersGuessed.includes(userKey)) {
 
         console.log("letter already guessed");
 
     } 
+    // if all else fails, subtract 1 from guesses remaining and add userKey to letters guessed
     else {
-            guessesRemaining--
-            lettersGuessed += userKey;
+        guessesRemaining--
+        lettersGuessed += userKey;
 
-            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+        document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+        document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+        
+        // if guesses remaining equals 0 then end game and reset word
+        if (guessesRemaining === 0) {
+            confirm("GAME OVER! You Lost!")
+            losses++
+
+            lettersGuessed = "";
+            guessesRemaining = 10;
+
+            document.getElementById("losses").innerHTML = losses;
             document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-            
-            if (guessesRemaining === 0) { prompt("GAME OVER! You Lost!") }
-        }
+            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;        }
+    }
 }
 
 // Checks for game completion
