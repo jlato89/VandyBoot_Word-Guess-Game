@@ -1,10 +1,10 @@
     // VARIABLES
     // ==========================================================================
-
+function startGame () {
 var words = ['computer', 'remote', 'monitor', 'keyboard', 'desktop', 'laptop', 'headset', 'mouse', 'joystick', 'gamepad'];
 var number = Math.floor(Math.random() * words.length);
 var currentWord = words[number];
-
+}
 // Arrays
 var currentWordArray = currentWord.split("");
 var currentDashArray = Array(currentWord.length).fill("-");
@@ -21,6 +21,7 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 document.getElementById("wins").innerHTML = wins;
 document.getElementById("losses").innerHTML = losses;
 
+startGame ();
 
     // FUNCTIONS
     // ==========================================================================
@@ -53,12 +54,13 @@ var userKey = event.key.toLowerCase();
                     alert("GAME OVER! You Win!") 
                     wins++
 
-                    lettersGuessed = "";
-                    guessesRemaining = 10;
+                    startGame();
+                    // lettersGuessed = "";
+                    // guessesRemaining = 10;
 
-                    document.getElementById("wins").innerHTML = wins;
-                    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-                    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+                    // document.getElementById("wins").innerHTML = wins;
+                    // document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+                    // document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
                     
                 } 
             }
@@ -89,7 +91,7 @@ var userKey = event.key.toLowerCase();
             losses++
 
             lettersGuessed = "";
-            guessesRemaining = 10;
+            guessesRemaining = 15;
 
             document.getElementById("losses").innerHTML = losses;
             document.getElementById("letters-guessed").innerHTML = lettersGuessed;
@@ -110,7 +112,7 @@ var userKey = event.key.toLowerCase();
 // console.log(guessesRemaining);
 // console.log(words);
 // console.log(number);
-console.log(currentWord);
 // console.log(currentWordArray);
 // console.log(currentWordLength);
+console.log(currentWord);
 console.log(currentDashArray);
