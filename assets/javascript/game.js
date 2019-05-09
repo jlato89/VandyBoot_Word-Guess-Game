@@ -24,7 +24,19 @@ document.getElementById("losses").innerHTML = losses;
 
     // FUNCTIONS
     // ==========================================================================
+function nextWord () {
+    number = Math.floor(Math.random() * words.length);
+    currentWord = words[number];
+    currentWordArray = currentWord.split("");
+    currentDashArray = Array(currentWord.length).fill("-");  
+    lettersGuessed = "";
+    guessesRemaining = 10;
 
+
+    document.getElementById("current-word").innerHTML = currentDashArray.join('');
+    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+}
 
 
     // MAIN PROCESS
@@ -52,14 +64,9 @@ var userKey = event.key.toLowerCase();
                 if (!currentDashArray.includes("-")) {
                     alert("GAME OVER! You Win!") 
                     wins++
-
-                    lettersGuessed = "";
-                    guessesRemaining = 10;
-
                     document.getElementById("wins").innerHTML = wins;
-                    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-                    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-                    
+
+                    nextWord();                    
                 } 
             }
         } return;
@@ -67,7 +74,7 @@ var userKey = event.key.toLowerCase();
     // check is userKey is valid character
     } else if (!/^[a-z]$/.test(userKey)) {
 
-        alert(userKey + " is not a valid guess!");
+        // alert(userKey + " is not a valid guess!");
 
     // check if userKey has already been guessed
     }else if (lettersGuessed.includes(userKey)) {
@@ -87,13 +94,9 @@ var userKey = event.key.toLowerCase();
         if (guessesRemaining === 0) {
             confirm("GAME OVER! You Lost!")
             losses++
-
-            lettersGuessed = "";
-            guessesRemaining = 10;
-
             document.getElementById("losses").innerHTML = losses;
-            document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;        
+
+            nextWord();
         }
     }
 }
