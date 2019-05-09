@@ -1,9 +1,6 @@
     // VARIABLES
     // ==========================================================================
-function startGame () {
-    number = Math.floor(Math.random() * words.length);
-    currentWord = words[number];
-}
+
 var words = ['computer', 'remote', 'monitor', 'keyboard', 'desktop', 'laptop', 'headset', 'mouse', 'joystick', 'gamepad'];
 var number = Math.floor(Math.random() * words.length);
 var currentWord = words[number];
@@ -56,13 +53,12 @@ var userKey = event.key.toLowerCase();
                     alert("GAME OVER! You Win!") 
                     wins++
 
-                    startGame();
-                    // lettersGuessed = "";
-                    // guessesRemaining = 10;
+                    lettersGuessed = "";
+                    guessesRemaining = 10;
 
-                    // document.getElementById("wins").innerHTML = wins;
-                    // document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-                    // document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+                    document.getElementById("wins").innerHTML = wins;
+                    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+                    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
                     
                 } 
             }
@@ -93,18 +89,14 @@ var userKey = event.key.toLowerCase();
             losses++
 
             lettersGuessed = "";
-            guessesRemaining = 15;
+            guessesRemaining = 10;
 
             document.getElementById("losses").innerHTML = losses;
             document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;        }
+            document.getElementById("guesses-remaining").innerHTML = guessesRemaining;        
+        }
     }
 }
-
-// Checks for game completion
-    // if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
-    // else if (guessesRemaining === 0) { alert("GAME OVER! You Lost!") }
-    // else {}
 
 
     // CONSOLE LOG
@@ -114,7 +106,7 @@ var userKey = event.key.toLowerCase();
 // console.log(guessesRemaining);
 // console.log(words);
 // console.log(number);
-console.log(currentWord);
 // console.log(currentWordArray);
 // console.log(currentWordLength);
+console.log(currentWord);
 console.log(currentDashArray);
