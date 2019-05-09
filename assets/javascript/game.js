@@ -33,6 +33,8 @@ document.onkeyup = function (event) {
 
 var userKey = event.key.toLowerCase();
 
+    
+
     if (currentWord.includes(userKey)) {
         for (i = 0; i < currentWord.length; i++) {
             if (currentWordArray[i] === userKey) {
@@ -44,6 +46,8 @@ var userKey = event.key.toLowerCase();
             // Displays Console Logs
                 console.log(userKey + " key Matched " + "current word index of " + i);
                 console.log(currentDashArray);
+
+                if (!currentDashArray.includes("-")) { alert("GAME OVER! You Win!") } 
 
             }
         }
@@ -63,7 +67,8 @@ var userKey = event.key.toLowerCase();
 
             document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
             document.getElementById("letters-guessed").innerHTML = lettersGuessed;
-
+            
+            if (guessesRemaining === 0) { prompt("GAME OVER! You Lost!") }
         }
 }
 
