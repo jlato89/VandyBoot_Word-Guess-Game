@@ -1,7 +1,7 @@
     // VARIABLES
     // ==========================================================================
 
-var words = ['computer', 'remote', 'monitor', 'keyboard', 'desktop', 'laptop', 'headset', 'mouse', 'joystick', 'gamepad'];
+var words = ['computer', 'remote', 'monitor', 'keyboard', 'desktop', 'laptop', 'headset', 'mouse', 'joystick', 'gamepad', 'speaker', 'server'];
 var number = Math.floor(Math.random() * words.length);
 var currentWord = words[number];
 
@@ -36,6 +36,8 @@ function nextWord () {
     document.getElementById("current-word").innerHTML = currentDashArray.join('');
     document.getElementById("letters-guessed").innerHTML = lettersGuessed;
     document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+
+    console.log(currentWord);
 }
 
 
@@ -92,7 +94,7 @@ var userKey = event.key.toLowerCase();
         
         // if guesses remaining equals 0 then end game and reset word
         if (guessesRemaining === 0) {
-            confirm("GAME OVER! You Lost!")
+            alert("GAME OVER! You Lost!")
             losses++
             document.getElementById("losses").innerHTML = losses;
 
