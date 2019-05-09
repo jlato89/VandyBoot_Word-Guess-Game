@@ -1,10 +1,13 @@
     // VARIABLES
     // ==========================================================================
 function startGame () {
+    number = Math.floor(Math.random() * words.length);
+    currentWord = words[number];
+}
 var words = ['computer', 'remote', 'monitor', 'keyboard', 'desktop', 'laptop', 'headset', 'mouse', 'joystick', 'gamepad'];
 var number = Math.floor(Math.random() * words.length);
 var currentWord = words[number];
-}
+
 // Arrays
 var currentWordArray = currentWord.split("");
 var currentDashArray = Array(currentWord.length).fill("-");
@@ -21,7 +24,6 @@ document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 document.getElementById("wins").innerHTML = wins;
 document.getElementById("losses").innerHTML = losses;
 
-startGame ();
 
     // FUNCTIONS
     // ==========================================================================
@@ -112,7 +114,7 @@ var userKey = event.key.toLowerCase();
 // console.log(guessesRemaining);
 // console.log(words);
 // console.log(number);
+console.log(currentWord);
 // console.log(currentWordArray);
 // console.log(currentWordLength);
-console.log(currentWord);
 console.log(currentDashArray);
