@@ -17,3 +17,11 @@ footer {
     padding-bottom: 10px;
     background-color: white;
 }
+
+.alert {
+    background-color: lightsalmon;
+    color: red;
+    padding: 10px;
+    margin: 15px 0;
+    display: none;
+}
