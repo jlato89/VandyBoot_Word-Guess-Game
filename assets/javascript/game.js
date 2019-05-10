@@ -44,10 +44,16 @@ function nextWord () {
     // MAIN PROCESS
     // ==========================================================================
 
-// Captures keyboard input.
+    // Captures keyboard input.
 document.onkeyup = function (event) {
 
 var userKey = event.key.toLowerCase();
+
+document.getElementById("1").style.display = "";
+document.getElementById("2").style.display = "";
+document.getElementById("3").style.display = "";
+document.getElementById("4").style.display = "";
+
 
     // check if user key matches word, if so do loop check of characters
     if (currentWord.includes(userKey)) {
@@ -64,7 +70,7 @@ var userKey = event.key.toLowerCase();
 
                 // if word is completed then end game and reset word
                 if (!currentDashArray.includes("-")) {
-                    alert("GAME OVER! You Win!") 
+                    document.getElementById("3").style.display = "inline";
                     wins++
                     document.getElementById("wins").innerHTML = wins;
 
@@ -75,12 +81,12 @@ var userKey = event.key.toLowerCase();
 
     // check is userKey is valid character
     } else if (!/^[a-z]$/.test(userKey)) {
-
+        document.getElementById("1").style.display = "inline";
         // alert(userKey + " is not a valid guess!");
 
     // check if userKey has already been guessed
     }else if (lettersGuessed.includes(userKey)) {
-        alert("You have already guessed " + userKey + ", please choose another.");
+        document.getElementById("2").style.display = "inline";
         console.log("letter already guessed");
 
     } 
@@ -94,7 +100,7 @@ var userKey = event.key.toLowerCase();
         
         // if guesses remaining equals 0 then end game and reset word
         if (guessesRemaining === 0) {
-            alert("GAME OVER! You Lost!")
+            document.getElementById("4").style.display = "inline";
             losses++
             document.getElementById("losses").innerHTML = losses;
 
