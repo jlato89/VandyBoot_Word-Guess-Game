@@ -80,7 +80,7 @@ var userKey = event.key.toLowerCase();
 
     // check if userKey has already been guessed
     }else if (lettersGuessed.includes(userKey)) {
-
+        alert("You have already guessed " + userKey + ", please choose another.");
         console.log("letter already guessed");
 
     } 
