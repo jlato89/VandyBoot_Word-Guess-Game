@@ -17,7 +17,7 @@ var losses = 0;
 
 document.getElementById("current-word").innerHTML = currentDashArray.join('');
 document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+document.getElementById("letters-guessed").innerHTML = "none";
 document.getElementById("wins").innerHTML = wins;
 document.getElementById("losses").innerHTML = losses;
 
@@ -34,7 +34,7 @@ function nextWord () {
 
 
     document.getElementById("current-word").innerHTML = currentDashArray.join('');
-    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+    document.getElementById("letters-guessed").innerHTML = "none";
     document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 
     console.log(currentWord);
