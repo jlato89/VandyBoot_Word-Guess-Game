@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Word Guess Game</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-grid.css">
+	<title>Word Guess Game</title>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1><center>Hangman Game</center></h1>
-    </header>
+	<div id="content">
+		<!-- Header -->
+		<header>
+			<h1 style="margin-bottom:10px"><u>The Hangman Game</u></h1>
+			<h4 style="margin-top:10px; margin-bottom:30px">Press any key to get started!</h4>
+		</header>
 
-    <!-- Content -->
-    <main>
-        <p><center>Press any key to get started!</center></p>
+		<!-- Content -->
+		<main>
+			<h3>Current Word</h3>
+			<h2><span id="current-word" style= "letter-spacing: 4px"></strong></span></h2>
+			<p>Guesses remaining</p>
+			<strong><span id="guesses-remaining"></strong></span></strong>
+			<br>
+			<p>Letters guessed</p>
+			<strong><span id="letters-guessed" style= "letter-spacing: 4px"></strong></span>
+			<br><br>
+			<div class="bootstrap-wrapper"><div class="row">
+				<div class="offset-3 col-3">
+					<p>Wins</p>
+					<strong><span id="wins"></strong></span>
+				</div>
+				<div class="col-3">
+					<p>Losses</p>
+					<strong><span id="losses"></span></strong></span>
+				</div>
+			</div></div>
+		</main>
 
-        <p>Current Word</p>
-        <p><strong><h2><span id="current-word" style= "letter-spacing: 4px">...Nothing</h2></strong></span></strong></p>
-        <p>Number of guesses remaining</p>
-        <strong><span id="guesses-remaining">...Nothing</strong></span></strong>
-        <br>
-        <p>Letters already guessed</p>
-        <strong><span id="letters-guessed" style= "letter-spacing: 4px">...Nothing</strong></span>
-        <br><br>
-        <p>Wins</p>
-        <strong><span id="wins">...Nothing</strong></span>
-        <br>
-        <p>Losses</p>
-        <strong><span id="losses">...Nothing</strong></span>
-    </main>
+		<!-- Footer -->
+		<footer>
 
-    <!-- Footer -->
-    <footer>
-
-    </footer>
+		</footer>
+	</div>
 <script src="assets/javascript/game.js"></script>
 </body>
 </html>
