@@ -35,11 +35,8 @@ function nextWord () {
 
     document.getElementById("current-word").innerHTML = currentDashArray.join('');
     document.getElementById("letters-guessed").innerHTML = "none";
-    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-
-    console.log(currentWord);
+    document.getElementById("guesses-remaining").innerHTML = guessesRemaining; 
 }
-
 
     // MAIN PROCESS
     // ==========================================================================
@@ -64,10 +61,6 @@ document.getElementById("4").style.display = "";
 
                 document.getElementById("current-word").innerHTML = currentDashArray.join('');
 
-            // Displays Console Logs
-                console.log(userKey + " key Matched " + "current word index of " + i);
-                console.log(currentDashArray);
-
                 // if word is completed then end game and reset word
                 if (!currentDashArray.includes("-")) {
                     document.getElementById("3").style.display = "inline";
@@ -82,12 +75,10 @@ document.getElementById("4").style.display = "";
     // check is userKey is valid character
     } else if (!/^[a-z]$/.test(userKey)) {
         document.getElementById("1").style.display = "inline";
-        // alert(userKey + " is not a valid guess!");
 
     // check if userKey has already been guessed
     }else if (lettersGuessed.includes(userKey)) {
         document.getElementById("2").style.display = "inline";
-        console.log("letter already guessed");
 
     } 
     // if all else fails, subtract 1 from guesses remaining and add userKey to letters guessed
@@ -108,16 +99,3 @@ document.getElementById("4").style.display = "";
         }
     }
 }
-
-
-    // CONSOLE LOG
-    // ==========================================================================
-
-// console.log("-----------");
-// console.log(guessesRemaining);
-// console.log(words);
-// console.log(number);
-// console.log(currentWordArray);
-// console.log(currentWordLength);
-console.log(currentWord);
-console.log(currentDashArray);
